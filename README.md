@@ -50,6 +50,7 @@ broadcast-blockedcommand-public: false #decides whether or not to publicly broad
 
 
 Commands:
+/ghelp            - displays the link to this file
 /ggroup 					- displays the group of the player running the command
 /ggroups   					- displays all groups available
 /ggetgroup [player]			- displays the group of the selected player
