@@ -50,8 +50,9 @@ broadcast-blockedcommand-public: false #decides whether or not to publicly broad
 
 
 Commands:
-/ggroup 					- displays the group of the player running the command
-/ggroups   					- displays all groups available
-/ggetgroup [player]			- displays the group of the selected player
-/gsetgroup [player] [group] - removes selected user from their current group and adds them to the selected group
+/ghelp				- displays link to this guide		
+/ggroup 			- displays the group of the player running the command
+/ggroups   			- displays all groups available
+/ggetgroup [player]		- displays the group of the selected player
+/gsetgroup [player] [group] 	- removes selected user from their current group and adds them to the selected group
 *caution* using /gsetgroup will most likely remove all comments in the file.
