@@ -33,6 +33,9 @@ blocked_commands:
   #if you don't want a command to be inherited place a . before the command (like this: ./command) this way groups
   #under that group won't inherit that command
   group 1:
+    - /gsetgroup	(recommended)
+    - /ghelp		(recommended)
+    - /gblockedcommands (recommended)
     - #/command1
     - #/command2
 
@@ -55,4 +58,5 @@ Commands:
 /ggroups   			- displays all groups available
 /ggetgroup [player]		- displays the group of the selected player
 /gsetgroup [player] [group] 	- removes selected user from their current group and adds them to the selected group
+/gblockedcommands [group]	- displays the blocked commands of the selected group
 *caution* using /gsetgroup will most likely remove all comments in the file.
