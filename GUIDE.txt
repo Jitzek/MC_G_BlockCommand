@@ -1,7 +1,7 @@
 # MC_G_BlockCommand
 Minecraft plugin to block commands for certain groups
 Minecraft version: 1.14.4
-Plugin version: 0.9
+Plugin version: 1.2
 
 Guide:
 
@@ -11,11 +11,11 @@ please run the plugin first so it can create it's folder)
 config.yml (can be copy pasted) # means it's a comment:
 it's best to fill in all the attributes of a group (name and color) to prevent any errors from happening.
 
-groups: 
-  #Group 1 is the highest tier (like Owner)
+groups:
+  #group 1 is the highest tier (like Owner)
   group 1: #keep it chronological (group 1, group 2, etc.) else the code won't recognize it
-    name: #nameofgroup (displayed groupname)
-    color: #display color (please choose a color from this list: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/ChatColor.html
+    name: Owner #(displayed groupname)
+    color: GOLD #(please choose a color from this list: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/ChatColor.html
     members:
     - #name (name of user)
     - #name2
@@ -28,26 +28,42 @@ groups:
       - #name
       - #name2
 
+  #example
+  group 3:
+    name: User
+    color: WHITE
+    member:
+      - #name
+      - #name
+
 blocked_commands:
   #group 2 inherits from group 1, group 3 from group 2 and group 1, etc.
   #if you don't want a command to be inherited place a . before the command (like this: ./command) this way groups
   #under that group won't inherit that command
   group 1:
-    - /gsetgroup	(recommended)
-    - /ghelp		(recommended)
-    - /gblockedcommands (recommended)
     - #/command1
     - #/command2
 
   #Add groups like this:
   group 2:
-    - /gsetgroup
-    - /ghelp
+    - /gsetgroup          #recommended
+    - /ghelp              #recommended
+    - /gblockedcommands   #recommended
     - #/commandexample
 
-broadcast-blockedcommand-public: false #decides whether or not to publicly broadcast a permission error message
-                                       #("player tried to execute command but didn't have the permissions to do so")
-                                       #setting it to false will only inform the player trying the command
+  group 3:
+    - #/commandexample
+    - #./commandexample
+
+
+default-group: User                      #Default group for players who don't have a group, leave empty if you don't want a default group
+                                         #Group needs to exist above
+
+broadcast-blockedcommand-public: false   #decides whether or not to publicly broadcast a permission error message
+                                         #("player tried to execute command but didn't have the permissions to do so")
+                                         #setting it to false will only inform the player trying the command
+
+
 
 -END of config.yml
 
