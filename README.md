@@ -3,6 +3,6 @@ Minecraft plugin to block commands for customizable groups
 
 Minecraft version: 1.14
 
-Plugin version: 1.3
+Plugin version: 1.4
 
-Date-Modified: 23/08/19
+Date-Modified: 24/08/19
