@@ -1,15 +1,4 @@
-# MC_G_BlockCommand
-Minecraft plugin to block commands for certain groups
-Minecraft version: 1.14
-Plugin version: 1.5
-
-Guide:
-
-To add/manage groups and their blocked commands refer to the config.yml file (located in your plugin folder,
-please run the plugin first so it can create it's folder)
-
-config.yml (can be copy pasted) # means it's a comment:
-it's best to fill in all the attributes of a group (name and color) to prevent any errors from happening.
+#G_BlockCommand
 
 groups:
   #group 1 is the highest tier (like Owner)
@@ -17,13 +6,13 @@ groups:
     name: Owner #(displayed groupname)
     color: GOLD #(please choose a color from this list: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/ChatColor.html
     members:
-    - #name (name of user)
+    - #Server Operator
     - #name2
 
   #Add groups like this:
   group 2:
     name: Admin #nameofgroup (Owner, Admin, Op, etc.)
-    color: #COLOR (doesn't have to be all caps), not giving a value to color could create errors (should default to White)
+    color: AQUA #COLOR (doesn't have to be all caps), not giving a value to color could create errors (should default to White)
     members:
       - #name
       - #name2
@@ -51,9 +40,20 @@ blocked_commands:
     - /gblockedcommands   #recommended
     - /gblockcommand      #recommended
     - /gunblockcommand    #recommended
+    - /stop
+    - /reload
+    - /ban
+    - /ban-ip
+    - /data
+    - /op
+    - /deop
     - #/commandexample
 
   group 3:
+    - /kick
+    - /kill
+    - /teleport
+    - /tphere
     - #/commandexample
     - #./commandexample
 
@@ -65,16 +65,3 @@ broadcast-blockedcommand-public: false #decides whether or not to publicly broad
                                        #("player tried to execute command but didn't have the permissions to do so")
                                        #setting it to false will only inform the player trying the command
 
-
--END of config.yml
-
-
-Commands:
-/ghelp							- displays link to this guide		
-/ggroup ([player])					- displays the group of the selected player or the player running the command
-/ggroups   						- displays all groups available
-/gsetgroup [player] [group] 				- removes selected user from their current group and adds them to the selected group
-/gblockedcommands [group]				- displays the blocked commands of the selected group
-/gblockcommand [/command or ./command] [group] 		- blocks command for specified group (./ means the command won't inherit)
-/gunblockcommand [/command or ./command] [group]	- unblocks command for specified group (./ means the command doesn't inherit)
-*caution* using /gsetgroup will most likely remove all comments in the file.
