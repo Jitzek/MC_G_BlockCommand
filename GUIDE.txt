@@ -1,7 +1,7 @@
 # MC_G_BlockCommand
 Minecraft plugin to block commands for certain groups
 Minecraft version: 1.14
-Plugin version: 1.5
+Plugin version: 1.6
 
 Guide:
 
@@ -10,6 +10,10 @@ please run the plugin first so it can create it's folder)
 
 config.yml (can be copy pasted) # means it's a comment:
 it's best to fill in all the attributes of a group (name and color) to prevent any errors from happening.
+
+#G_BlockCommand
+
+enable-plugin: true #set to false to disable plugin, set to true to enable plugin
 
 groups:
   #group 1 is the highest tier (like Owner)
@@ -23,7 +27,7 @@ groups:
   #Add groups like this:
   group 2:
     name: Admin #nameofgroup (Owner, Admin, Op, etc.)
-    color: #COLOR (doesn't have to be all caps), not giving a value to color could create errors (should default to White)
+    color: AQUA #(doesn't have to be all caps), not giving a value to color could create errors (should default to White)
     members:
       - #name
       - #name2
@@ -32,7 +36,7 @@ groups:
   group 3:
     name: User
     color: WHITE
-    member:
+    members:
       - #name
       - #name
 
@@ -51,6 +55,7 @@ blocked_commands:
     - /gblockedcommands   #recommended
     - /gblockcommand      #recommended
     - /gunblockcommand    #recommended
+    - /gremovegroup       #recommended
     - #/commandexample
 
   group 3:
@@ -65,8 +70,10 @@ broadcast-blockedcommand-public: false #decides whether or not to publicly broad
                                        #("player tried to execute command but didn't have the permissions to do so")
                                        #setting it to false will only inform the player trying the command
 
+broadcast-groupchange-public:    false #decides whether or not to publicly broadcast a player group change (/gsetgroup)
+                                       #setting it to false will only inform the player setting the group and the player getting set the group
 
--END of config.yml
+-- END of config.yml
 
 
 Commands:
@@ -77,4 +84,7 @@ Commands:
 /gblockedcommands [group]				- displays the blocked commands of the selected group
 /gblockcommand [/command or ./command] [group] 		- blocks command for specified group (./ means the command won't inherit)
 /gunblockcommand [/command or ./command] [group]	- unblocks command for specified group (./ means the command doesn't inherit)
-*caution* using /gsetgroup will most likely remove all comments in the file.
+/gaddgroup ["group name"] [color] [index]		- adds new group on given index (and shifts all other groups accordingly)
+/gremovegroup ["group name"]				- removes given group (and shifts all other groups accordingly)
+
+*caution* using /gsetgroup /gaddgroup or /gremovegroup will most likely remove all comments in the config file.

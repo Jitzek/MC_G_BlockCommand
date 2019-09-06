@@ -1,18 +1,20 @@
 #G_BlockCommand
 
+enable-plugin: true #set to false to disable plugin, set to true to enable plugin
+
 groups:
   #group 1 is the highest tier (like Owner)
   group 1: #keep it chronological (group 1, group 2, etc.) else the code won't recognize it
     name: Owner #(displayed groupname)
     color: GOLD #(please choose a color from this list: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/ChatColor.html
     members:
-    - #Server Operator
+    - #Name of Server Owner
     - #name2
 
   #Add groups like this:
   group 2:
     name: Admin #nameofgroup (Owner, Admin, Op, etc.)
-    color: AQUA #COLOR (doesn't have to be all caps), not giving a value to color could create errors (should default to White)
+    color: AQUA #(doesn't have to be all caps), not giving a value to color could create errors (should default to White)
     members:
       - #name
       - #name2
@@ -21,7 +23,7 @@ groups:
   group 3:
     name: User
     color: WHITE
-    member:
+    members:
       - #name
       - #name
 
@@ -40,20 +42,10 @@ blocked_commands:
     - /gblockedcommands   #recommended
     - /gblockcommand      #recommended
     - /gunblockcommand    #recommended
-    - /stop
-    - /reload
-    - /ban
-    - /ban-ip
-    - /data
-    - /op
-    - /deop
+    - /gremovegroup       #recommended
     - #/commandexample
 
   group 3:
-    - /kick
-    - /kill
-    - /teleport
-    - /tphere
     - #/commandexample
     - #./commandexample
 
@@ -65,3 +57,5 @@ broadcast-blockedcommand-public: false #decides whether or not to publicly broad
                                        #("player tried to execute command but didn't have the permissions to do so")
                                        #setting it to false will only inform the player trying the command
 
+broadcast-groupchange-public:    false #decides whether or not to publicly broadcast a player group change (/gsetgroup)
+                                       #setting it to false will only inform the player setting the group and the player getting set the group
