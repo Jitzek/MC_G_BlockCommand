@@ -56,6 +56,7 @@ blocked_commands:
     - /gblockcommand      #recommended
     - /gunblockcommand    #recommended
     - /gremovegroup       #recommended
+    - /gaddgroup	  #recommended
     - #/commandexample
 
   group 3:
